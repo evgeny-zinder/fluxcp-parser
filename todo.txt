@@ -1,0 +1,9 @@
+[ ] server info
+[ ]  - total stats
+[ ]  - class stats
+[ ]  - guild stats
+[ ]  - zeny stats
+[ ]  - mvp stats
+[ ] ranking info
+[ ] server status
+[ ] buying info
