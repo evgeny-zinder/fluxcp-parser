@@ -58,13 +58,13 @@ func (c *client) Get(path string) ([]byte, error) {
 	}
 
 	content, err := io.ReadAll(resp.Body)
-	defer func() {
-		_ = resp.Body.Close()
-	}()
-
 	if err != nil {
 		return nil, err
 	}
+
+	defer func() {
+		_ = resp.Body.Close()
+	}()
 
 	return content, nil
 }
@@ -83,13 +83,13 @@ func (c *client) login() error {
 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 
 	resp, err := c.client.Do(req)
-	defer func() {
-		_ = resp.Body.Close()
-	}()
-
 	if err != nil {
 		return err
 	}
+
+	defer func() {
+		_ = resp.Body.Close()
+	}()
 
 	for _, cc := range resp.Cookies() {
 		if cc.Name == authCookieName {
@@ -113,7 +113,6 @@ func (c *client) checkLogin() error {
 	if err != nil {
 		return err
 	}
-	c.loggedInAt = time.Now()
 
 	return nil
 }

@@ -4,6 +4,8 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
+
+	"github.com/eznd-go/flux/pkg/projectpath"
 )
 
 var (
@@ -14,8 +16,7 @@ var (
 )
 
 func init() {
-	_ = godotenv.Load()
-
+	_ = godotenv.Load(projectpath.Root + "/.env")
 	User = os.Getenv("USER_NAME")
 	Password = os.Getenv("PASSWORD")
 	ServerName = os.Getenv("SERVER_NAME")
